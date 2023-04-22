@@ -31,7 +31,7 @@ Three examples are provided with the library:
 
 - `BrainBlinker.ino` blinks an LED faster as your "attention" value increases.
 - `BrainSerialTest.ino` prints out a CSV of brain data over serial.
-- `BrainSoftSerialTest.ino` reads brain data over SoftwareSerial and prints a CSV over hardware serial. 
+- `BrainSoftSerialTest.ino` reads brain data over SoftwareSerial and prints a CSV over hardware serial.
 
 ### INSTALLATION
 There are two ways to install the library:
@@ -45,53 +45,53 @@ Download the [latest release](https://github.com/kitschpatrol/Brain/releases), d
 
 ### FUNCTION OVERVIEW
 
-- `Brain(HardwareSerial &_brainSerial)`  
+- `Brain(HardwareSerial &_brainSerial)`
 Instantiates the brain library on a hardware serial port.
 
-- `boolean update();`  
+- `boolean update();`
 Call this in your main loop to read data from the headset. Returns true if there is a fresh packet.
 
-- `char* readErrors();`  
+- `char* readErrors();`
 Character string containing the most recent errors. Worth printing this out over serial if you're having trouble.
 
-- `char* readCSV();`  
+- `char* readCSV();`
 Character string with all of the latest brain values in a comma-delimited format. Intended to be printed over serial. The data is returned in this order: `signal strength, attention, meditation, delta, theta, low alpha, high alpha, low beta, high beta, low gamma, high gamma`
 
 
-- `byte readSignalQuality();`  
+- `byte readSignalQuality();`
 Returns the latest signal quality reading. 200 is high, 0 is no signal. This (and the remainder of the functions) are mainly intended for use when you want the Arduino to use the brain data internally. (Saves you the hassle / memory expenditure of parsing the CSV.)
 
-- `byte readAttention();`  
+- `byte readAttention();`
 Returns the NeuroSky "eSense" attention value.
 
-- `byte readMeditation();`  
+- `byte readMeditation();`
 Returns the NeuroSky "eSense" meditation value.
 
-- `unsigned long* readPowerArray();`  
+- `unsigned long* readPowerArray();`
 Returns an array of the eight power-band (FFT) values, in the same order as the CSV.
 
-- `unsigned long readDelta();`  
+- `unsigned long readDelta();`
 Returns the delta (1-3Hz) power value, often associated with sleep.
 
-- `unsigned long readTheta();`  
+- `unsigned long readTheta();`
 Returns the theta (4-7Hz) power value, associated with a relaxed, meditative state.
 
-- `unsigned long readLowAlpha();`  
+- `unsigned long readLowAlpha();`
 Returns the low alpha (8-9Hz) power value, higher when eyes are closed or you're relaxed/
 
-- `unsigned long readHighAlpha();`  
+- `unsigned long readHighAlpha();`
 Returns the high alpha (10-12Hz) power value.
 
-- `unsigned long readLowBeta();`  
+- `unsigned long readLowBeta();`
 Returns the low beta (13-17Hz) power value, higher when you're alert and focused.
 
-- `unsigned long readHighBeta();`  
+- `unsigned long readHighBeta();`
 Returns the high beta (18-30Hz) power value.
 
-- `unsigned long readLowGamma();`  
+- `unsigned long readLowGamma();`
 Returns the low gamma (31-40Hz) power value, associated with multi-sensory processing.
 
-- `unsigned long readMidGamma();`  
+- `unsigned long readMidGamma();`
 Returns the high gamma (41-50Hz) power value.
 
 
@@ -106,10 +106,11 @@ Brain data comes in quite slowly... expect a fresh packet every second or so.
 
 
 ### CONTACT
-Eric Mika  
-eric@ericmika.com  
-[https://github.com/kitschpatrol](https://github.com/kitschpatrol)  
-[http://frontiernerds.com](http://frontiernerds.com)  
+Eric Mika
+eric@ericmika.com
+[https://github.com/kitschpatrol](https://github.com/kitschpatrol)
+[http://frontiernerds.com](http://frontiernerds.com)
+
 
 ### COLOPHON
 Created by Eric Mika at NYU ITP in the spring of 2010.
@@ -119,6 +120,12 @@ Revised, retested, and cleaned up in early 2014.
 My thanks to Tom Igoe for his assistance during development. Thanks to my collaborators Sofy Yuditskaya and Arturo Vidich. (E>)
 
 Thanks also to [Eero af Heurlin](https://github.com/rambo) for making some considered changes in his fork.
+
+
+### Developer Notes
+#### Mods and Hacking
+[How to Hack Toy EEGs](https://frontiernerds.com/brain-hack)
+[Mindflex duel hacking (conversion a 50HZ y salida RAW )](http://morloklabs.blogspot.com/2011/12/mindflex-duel-hacking-conversion-50hz-y.html?m=1)
 
 
 ### LICENSE
